@@ -17,7 +17,17 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moving();
+        if (isMoving == true)
+        {
+            moving();
+        }
+        movingCheck();
+        
+    }
+
+    public void setIsMoving(bool moving)
+    {
+        isMoving = moving;
     }
 
     void moving(){
@@ -44,10 +54,16 @@ public class playerController : MonoBehaviour
             transform.Translate (Vector3.right * speed * Time.deltaTime, Space.World);
             isMoving = true;
         }
+    }
 
+    void movingCheck()
+    {
         if(Input.GetKey(KeyCode.W) !=true && Input.GetKey(KeyCode.A) !=true && Input.GetKey(KeyCode.S) !=true && Input.GetKey(KeyCode.D) !=true)
         {
             isMoving = false;
+        }else
+        {
+            isMoving = true;
         }
     }
 }
