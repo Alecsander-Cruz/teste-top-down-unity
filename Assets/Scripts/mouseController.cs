@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class mouseController : MonoBehaviour
 {
-    Vector3 mousePoint;
+    Vector3 mousePos;
     Rigidbody2D rb;
     Camera camera;
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class mouseController : MonoBehaviour
 
     void rotateCamera()
     {
-        mousePoint = camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, (Input.mousePosition.z - camera.transform.position.z)));
-        rb.transform.eulerAngles = new Vector3(0,0, Mathf.Atan2((mousePoint.y - transform.position.y), (mousePoint.x - transform.position.x)) * Mathf.Rad2Deg);
+        mousePos = camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, (-10f)));
+        rb.transform.eulerAngles = new Vector3(0,0, Mathf.Atan2((mousePos.y - transform.position.y), (mousePos.x - transform.position.x)) * Mathf.Rad2Deg);
     }
 }
