@@ -7672,6 +7672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  playerWalk: {fileID: 1824080805}
 --- !u!212 &1824080801
 SpriteRenderer:
   m_ObjectHideFlags: 0

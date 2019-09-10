@@ -7,11 +7,13 @@ public class playerController : MonoBehaviour
 
     private bool        isMoving = false;
     public float        speed = 5f; 
+    public Animator     playerWalk;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerWalk = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -61,9 +63,11 @@ public class playerController : MonoBehaviour
         if(Input.GetKey(KeyCode.W) !=true && Input.GetKey(KeyCode.A) !=true && Input.GetKey(KeyCode.S) !=true && Input.GetKey(KeyCode.D) !=true)
         {
             isMoving = false;
+            playerWalk.SetBool("isMoving", false);
         }else
         {
             isMoving = true;
+            playerWalk.SetBool("isMoving", true);
         }
     }
 }
